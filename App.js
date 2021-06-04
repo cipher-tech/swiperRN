@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, Card } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Ball from './src/Ball';
 import Deck from './src/deck';
 
 const DATA = [
@@ -43,12 +44,11 @@ export default function App() {
     <SafeAreaProvider>
 
       <View style={styles.container}>
-        {/* <Text>Open up App.js to start working on your app!</Text> */}
         <Deck
           data={DATA}
           renderCard={renderCard}
-
         />
+        <Ball />
         {/* <StatusBar style="auto" /> */}
       </View>
 

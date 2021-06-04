@@ -7,7 +7,7 @@ const Ball = () => {
     let pos = new Animated.ValueXY(0, 0)
     useEffect( () => {
         Animated.spring(pos, {
-            toValue: { x: 200, y: 500 }
+            toValue: { x: 250, y: 420 },
         }).start()
     }, [])
     return (
