@@ -80,19 +80,21 @@ export class Deck extends Component {
                     return (
                         <Animated.View
                             key={card.id}
-                            style={{...styles.cardStyle, ...this.getCardStyle()} }
+                            style={[this.getCardStyle(), styles.cardStyle]}
                             {...this.state.panResponder.panHandlers}>
                             {this.props.renderCard(card)}
+                    {console.log("animated id:::: ", this.state.index, i)}
+
                         </Animated.View>
                     )
                 }
                 return (
-                    <View key={card.id} style={{...styles.cardStyle}}>
-                    {console.log("id:::: ", styles.cardStyle)}
+                    <View key={card.id} style={[styles.cardStyle]}>
+                    {console.log("id:::: ", card.id, i)}
                         {this.props.renderCard(card)}
                     </View>
                 )
-            })
+            }).reverse()
         )
     }
 
@@ -109,12 +111,12 @@ export class Deck extends Component {
 
 export default Deck
 
-const styles = {
+const styles = StyleSheet.create({
     cardStyle: {
         position: "absolute",
-        width: SCREEN_WIDTH
+        width: SCREEN_WIDTH,
     }
-}
+})
 
 Deck.defaultProps = {
     onSwipeRight: () => { },
